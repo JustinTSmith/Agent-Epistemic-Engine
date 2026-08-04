@@ -1,0 +1,31 @@
+name: validate context
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # agent-mode needs history to diff
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate store
+        run: python3 scripts/validate.py
+
+      - name: Validate guardrail tests
+        run: ./tests/test_validator.sh
+
+      # Agent-write restrictions only apply to proposed changes.
+      - name: Enforce agent write rules
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=50
+          python3 scripts/validate.py --agent-mode --base origin/${{ github.base_ref }}

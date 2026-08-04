@@ -1,0 +1,6 @@
+# This protects the engine itself. Downstream stores that copy this repo
+# should ship their own CODEOWNERS protecting their canon/, decisions/, and
+# schema/ directories — see QUICKSTART.md.
+/CONTEXT_PROTOCOL.md   @JustinTSmith
+/scripts/              @JustinTSmith
+/.github/               @JustinTSmith
