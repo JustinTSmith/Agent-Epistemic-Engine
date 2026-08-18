@@ -11,7 +11,7 @@ mkdir -p canon evidence derived decisions entities
 ## 2. Copy the engine in
 
 ```bash
-ENGINE=~/Workspace/projects/context-manager
+ENGINE=~/Workspace/projects/Agent-Epistemic-Engine
 cp "$ENGINE/CONTEXT_PROTOCOL.md" .
 cp "$ENGINE/PORTABILITY.md" .
 cp "$ENGINE/CLAUDE.md" .

@@ -1,4 +1,4 @@
-# context-manager
+# Agent-Epistemic-Engine
 
 A reusable engine for building governed, agent-writable knowledge stores that
 resist fabrication, drift, and silent corruption — extracted from the first
