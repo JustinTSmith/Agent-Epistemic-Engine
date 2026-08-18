@@ -39,7 +39,7 @@ entry. If you're migrating from an existing knowledge base (a vault, a wiki,
 a set of docs), cite the original as `doc:<path> @ <date-it-was-written>` —
 not the date you happened to copy it. Do not backfill plausible-sounding
 numbers to fill gaps; leave the gap and note it explicitly. See
-`CONTEXT_PROTOCOL.md` §5, rule 6.
+`CONTEXT_PROTOCOL.md` §6, rule 6.
 
 ## 5. Validate before the first commit
 
