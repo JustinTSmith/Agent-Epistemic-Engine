@@ -82,13 +82,27 @@ write a new ADR that `supersedes:` the old one. The record of *what you
 believed when you chose* is preserved, which is the only thing that makes a
 decision log worth keeping.
 
+---
+
+## 4. The entity registry
+
+`entities/` is **not** a trust zone. The four zones above are defined by *write
+authority* — who may write, and under what constraint. `entities/` is defined by
+*identity*: it is the registry that gives durable things a stable handle so the
+same person, company, or persona is not re-created under three different names
+across the store.
+
 ### `entities/` — stable-ID pages
 People, organisations, competitors, personas, anything with a durable
 identity. Stable `id` prevents the duplication failure.
 
+Entity pages still obey the frontmatter contract and the source grammar below;
+they simply are not governed by a zone-specific write rule the way `canon/`,
+`evidence/`, `derived/`, and `decisions/` are.
+
 ---
 
-## 4. The frontmatter contract
+## 5. The frontmatter contract
 
 Deliberately **flat** — scalars and lists of scalars only. Nested YAML is
 rejected by the parser rather than silently mis-read. Three reasons: it needs
@@ -122,7 +136,7 @@ distinction is what lets you spot a claim resting on a stale number.
 
 ---
 
-## 5. Rules an agent must follow
+## 6. Rules an agent must follow
 
 1. **Read before you write.** Never assert into the store what you have not
    read out of it.
@@ -140,7 +154,7 @@ distinction is what lets you spot a claim resting on a stale number.
 
 ---
 
-## 6. What CI enforces
+## 7. What CI enforces
 
 `python3 scripts/validate.py` (every push):
 - frontmatter parses, is flat, has required keys for its type
@@ -159,7 +173,7 @@ distinction is what lets you spot a claim resting on a stale number.
 
 ---
 
-## 7. The write loop
+## 8. The write loop
 
 ```
   read canon/ + relevant evidence/
